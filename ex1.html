@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Portal | Bootstrap 5 Showcase</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --secondary: #6c757d;
+            --success: #198754;
+            --info: #0dcaf0;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/random/1200x600/?university') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .counter-box {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .cta-section {
+            background-color: var(--light);
+            padding: 80px 0;
+            margin: 50px 0;
+        }
+        
+        .component-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 25px;
+            height: 100%;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .component-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        .component-body {
+            padding: 20px;
+        }
+        
+        .banner {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .progress {
+            height: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .btn-group .btn {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .list-group-item {
+            transition: all 0.3s ease;
+        }
+        
+        .list-group-item:hover {
+            background-color: rgba(13, 110, 253, 0.1);
+        }
+        
+        .carousel-item {
+            height: 400px;
+        }
+        
+        .carousel-item img {
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .offcanvas-header {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .carousel-caption .caption-bg {
+          background: rgba(0,0,0,0.55);
+          color: #fff;
+          padding: 0.5rem 1.25rem;
+          border-radius: 1rem;
+          display: inline-block;
+          text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-graduation-cap me-2"></i>Alumni Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Network</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Career Services</a></li>
+                            <li><a class="dropdown-item" href="#">Mentorship</a></li>
+                            <li><a class="dropdown-item" href="#">Job Board</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Library Access</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index1.html">Register</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContact">
+                    <i class="fas fa-envelope me-1"></i> Contact
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Welcome Back Alumni!</h1>
+            <p class="lead mb-5">Reconnect with your alma mater and fellow graduates through our alumni network.</p>
+            <a href="index1.html" class="btn btn-primary btn-lg px-4 me-2">Register Now</a>
+            <a href="#" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container mb-5">
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="counter-box">
+                    <div class="counter" id="alumni-counter">0</div>
+                    <p>Registered Alumni</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="counter-box">
+                    <div class="counter" id="events-counter">0</div>
+                    <p>Upcoming Events</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="counter-box">
+                    <div class="counter" id="countries-counter">0</div>
+                    <p>Countries</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="counter-box">
+                    <div class="counter" id="years-counter">0</div>
+                    <p>Years Established</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Components Showcase -->
+    <section class="container my-5">
+        
+
+        <div class="row">
+            <!-- Tables -->
+            <div class="col-md-6">
+                <div class="component-card">
+                    <div class="component-header">
+                        <i class="fas fa-table me-2"></i>Tables
+                    </div>
+                    <div class="component-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Graduation Year</th>
+                                    <th>City</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Aarav Sharma</td>
+                                    <td>2016</td>
+                                    <td>Mumbai</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Priya Singh</td>
+                                    <td>2018</td>
+                                    <td>Delhi</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Rahul Verma</td>
+                                    <td>2017</td>
+                                    <td>Bangalore</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Ananya Iyer</td>
+                                    <td>2019</td>
+                                    <td>Chennai</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Vikram Patel</td>
+                                    <td>2015</td>
+                                    <td>Ahmedabad</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Images -->
+            <div class="col-md-6">
+                <div class="component-card">
+                    <div class="component-header">
+                        <i class="fas fa-image me-2"></i>Images
+                    </div>
+                    <div class="component-body text-center">
+                        <!-- Added/fixed by AI assistant -->
+                       
+                        <img src="images.jpeg" alt="Graduation" width="200" height="120" class="img-fluid rounded mb-3">
+                        <img src="images (1).jpeg" class="img-thumbnail mb-3" alt="Graduation 2">
+                        <img src="download (1).jpeg" class="img-fluid rounded mb-3" alt="Graduation 3">
+                        <img src="download (2).jpeg" class="img-thumbnail mb-3" alt="Graduation 4">
+                        <img src="download (3).jpeg" class="img-fluid rounded mb-3" alt="Graduation 5">
+                        <img src="download.jpeg" class="img-thumbnail mb-3" alt="Graduation 6">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jumbotron -->
+            <div class="col-md-6">
+                <div class="component-card">
+                    <div class="component-header">
+                        <i class="fas fa-star me-2"></i>Jumbotron
+                    </div>
+                    <div class="component-body">
+                        <div class="jumbotron-custom p-5 mb-4 position-relative text-white rounded-4 shadow-lg" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%), url('images.jpeg') center/cover no-repeat; min-height: 340px;">
+                            <div class="bg-dark bg-opacity-50 p-4 rounded-4" style="max-width: 90%; margin: auto;">
+                                <h1 class="display-5 fw-bold mb-3">Alumni Spotlight</h1>
+                                <p class="fs-4 mb-4">Meet our featured alumni of the month who has made significant contributions to their industry and community. Their journey inspires us all!</p>
+                                <button class="btn btn-warning btn-lg px-4 shadow" type="button" data-bs-toggle="modal" data-bs-target="#alumniStoryModal">
+                                    <i class="fas fa-book-open me-2"></i>Read Story
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Alumni Story Modal -->
+            <div class="modal fade" id="alumniStoryModal" tabindex="-1" aria-labelledby="alumniStoryModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="alumniStoryModalLabel">Alumni Spotlight Story</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row align-items-center">
+                      <div class="col-md-4 text-center mb-3 mb-md-0">
+                        <img src="images (1).jpeg" class="img-fluid rounded shadow" alt="Featured Alumni">
+                      </div>
+                      <div class="col-md-8">
+                        <h4 class="fw-bold mb-2">Priya Singh</h4>
+                        <p class="mb-1"><strong>Batch:</strong> 2018, Delhi</p>
+                        <p class="mb-3"><strong>Current Role:</strong> Senior Software Engineer at Infosys</p>
+                        <p>Priya Singh has been a trailblazer in the tech industry, leading innovative projects and mentoring young engineers. Her dedication to community service and her alma mater has made her a role model for many aspiring professionals. She regularly volunteers for alumni events and supports women in STEM initiatives.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Progress Bars -->
+            <div class="col-md-6">
+                <div class="component-card">
+                    <div class="component-header">
+                        <i class="fas fa-tasks me-2"></i>Progress Bars
+                    </div>
+                    <div class="component-body">
+                        <h6>Alumni Engagement</h6>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 75%">75%</div>
+                        </div>
+                        
+                        <h6>Event Participation</h6>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%">50%</div>
+                        </div>
+                        
+                        <h6>Mentorship Program</h6>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 30%">30%</div>
+                        </div>
+                        
+                        <h6>Alumni Donations</h6>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 90%">90%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- List Groups -->
+            <div class="col-md-6">
+                <div class="component-card">
+                    <div class="component-header">
+                        <i class="fas fa-list me-2"></i>List Groups
+                    </div>
+                    <div class="component-body">
+                        <div class="list-group mb-3">
+                            <a href="#" class="list-group-item list-group-item-action active">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Alumni Reunion 2023</h5>
+                                    <small>3 days ago</small>
+                                </div>
+                                <p class="mb-1">Join us for the annual alumni reunion on December 15th</p>
+                                <small>Main Campus Hall</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Career Networking Event</h5>
+                                    <small>1 week ago</small>
+                                </div>
+                                <p class="mb-1">Connect with industry professionals and alumni</p>
+                                <small>Career Center</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Mentorship Program</h5>
+                                    <small>2 weeks ago</small>
+                                </div>
+                                <p class="mb-1">Sign up to mentor current students</p>
+                                <small>Deadline: Dec 1</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Collapse -->
+            <div class="col-md-6">
+                <div class="component-card">
+                    <div class="component-header">
+                        <i class="fas fa-arrows-alt-v me-2"></i>Collapse
+                    </div>
+                    <div class="component-body">
+                        <p>
+                            <a class="btn btn-primary mb-2" data-bs-toggle="collapse" href="#collapseAlumniBenefits">
+                                View Alumni Benefits
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseAlumniBenefits">
+                            <div class="card card-body">
+                                <ul>
+                                    <li>Exclusive access to career services</li>
+                                    <li>Library resources and databases</li>
+                                    <li>Discounted event tickets</li>
+                                    <li>Networking opportunities</li>
+                                    <li>Continuing education discounts</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContactInfo">
+                                Show Contact Information
+                            </button>
+                            <div class="collapse mt-2" id="collapseContactInfo">
+                                <div class="alert alert-info">
+                                    <p><strong>Alumni Relations Office</strong></p>
+                                    <p>Email: alumni@university.edu</p>
+                                    <p>Phone: (555) 123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel -->
+            <div class="col-12">
+                <div class="component-card">
+                    <div class="component-header">
+                        <i class="fas fa-images me-2"></i>Carousel
+                    </div>
+                    <div class="component-body">
+                        <div id="alumniCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="4"></button>
+                                <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="5"></button>
+                            </div>
+                            <div class="carousel-inner rounded">
+                                <div class="carousel-item active">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="images.jpeg" class="d-block w-100 object-fit-cover" alt="Graduation 1">
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block p-3">
+                                        <span class="caption-bg">
+                                            <h5>Graduation Celebration</h5>
+                                            <p>Our alumni celebrating their achievements</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="images (1).jpeg" class="d-block w-100 object-fit-cover" alt="Graduation 2">
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block p-3">
+                                        <span class="caption-bg">
+                                            <h5>Group Graduation</h5>
+                                            <p>Another successful batch of graduates</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="download (1).jpeg" class="d-block w-100 object-fit-cover" alt="Graduation 3">
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block p-3">
+                                        <span class="caption-bg">
+                                            <h5>Throwing Caps</h5>
+                                            <p>Joyful moments at the ceremony</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="download (2).jpeg" class="d-block w-100 object-fit-cover" alt="Graduation 4">
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block p-3">
+                                        <span class="caption-bg">
+                                            <h5>Creative Alumni</h5>
+                                            <p>Celebrating ideas and innovation</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="download (3).jpeg" class="d-block w-100 object-fit-cover" alt="Graduation 5">
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block p-3">
+                                        <span class="caption-bg">
+                                            <h5>Artistic Graduation</h5>
+                                            <p>Artistic impressions of alumni success</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="download.jpeg" class="d-block w-100 object-fit-cover" alt="Graduation 6">
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block p-3">
+                                        <span class="caption-bg">
+                                            <h5>Blue Silhouettes</h5>
+                                            <p>Celebrating together as a community</p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#alumniCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#alumniCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offcanvas -->
+            <div class="col-12">
+                <div class="component-card">
+                    <div class="component-header">
+                        <i class="fas fa-bars me-2"></i>Offcanvas
+                    </div>
+                    <div class="component-body">
+                        <p>Click the "Contact" button in the navigation bar to see the offcanvas component in action.</p>
+                        <p>Alternatively, you can use this button:</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContact">
+                            Open Contact Form
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section text-center">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-4">Ready to Join Our Alumni Network?</h2>
+            <p class="lead mb-5">Register now to access all the benefits of our alumni community.</p>
+            <a href="index1.html" class="btn btn-primary btn-lg px-4">Register Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-graduation-cap me-2"></i>Alumni Portal</h5>
+                    <p class="text-light">Connecting graduates across generations and around the world.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-light">Home</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Events</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Network</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">About</a></li>
+                        <li><a href="index1.html" class="text-decoration-none text-light">Register</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled text-light">
+                        <li><i class="fas fa-envelope me-2"></i> alumni@example.edu</li>
+                        <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 University Ave</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Newsletter</h5>
+                    <p class="text-light">Subscribe to our newsletter for updates</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-light mb-0">&copy; </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small text-light mb-0">
+                        <a href="#" class="text-decoration-none text-light">Privacy Policy</a> | 
+                        <a href="#" class="text-decoration-none text-light">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Offcanvas Contact Form -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasContact">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Contact Alumni Office</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="graduationYear" class="form-label">Graduation Year</label>
+                    <select class="form-select" id="graduationYear">
+                        <option value="">Select Year</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Simple JavaScript for dynamic elements -->
+    <script>
+        // Counter animation
+        function animateCounter(id, target, duration = 2000) {
+            const element = document.getElementById(id);
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    clearInterval(timer);
+                    current = target;
+                }
+                element.textContent = Math.floor(current);
+            }, 16);
+        }
+        
+        // Initialize on page load
+        window.onload = function() {
+            // Animate counters
+            animateCounter('alumni-counter', 5243);
+            animateCounter('events-counter', 28);
+            animateCounter('countries-counter', 64);
+            animateCounter('years-counter', 120);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Registration Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white">
+
+  <div class="container py-5">
+    <div class="card shadow-lg mx-auto" style="max-width: 700px;">
+      <div class="card-body bg-light rounded-4 p-4">
+        <h2 class="text-center text-dark fw-bold mb-4">Alumni Registration</h2>
+        <form id="alumniForm" class="needs-validation" action="http://localhost:3000/index1" method="POST" enctype="multipart/form-data" novalidate>
+          <!-- Home Button -->
+          <div class="d-flex justify-content-end mb-3">
+            <a href="ex1.html" class="btn btn-secondary">Home</a>
+          </div>
+
+          <!-- Full Name -->
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required minlength="3">
+            <label for="name">Full Name</label>
+            <div class="invalid-feedback">Full Name must be at least 3 characters long.</div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+            <label for="email">Email</label>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+
+          <!-- Roll Number -->
+          <div class="mb-3">
+            <label for="Rollno" class="form-label">Roll Number</label>
+            <input type="text" class="form-control" id="Rollno" name="Rollno" required>
+            <div class="invalid-feedback">Roll number is required.</div>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone" pattern="[+0-9\s-]{10,15}" required>
+            <div class="invalid-feedback">Phone number must be between 10 to 15 digits.</div>
+          </div>
+
+          <!-- Graduation Year -->
+          <div class="mb-3">
+            <label for="gradYear" class="form-label">Graduation Year</label>
+            <select class="form-select" id="gradYear" name="gradYear" required></select>
+            <div class="invalid-feedback">Please select your graduation year.</div>
+          </div>
+
+          <!-- Program -->
+          <div class="mb-3">
+            <label for="program" class="form-label">Program</label>
+            <select id="program" name="program" class="form-select" required>
+              <option value="" disabled selected>Select Program</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+              <option value="Information Technology">Information Technology</option>
+            </select>
+            <div class="invalid-feedback">Please select your program.</div>
+          </div>
+
+          <!-- Country -->
+          <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <select id="country" name="country" class="form-select" required>
+              <option value="" disabled selected>Select Country</option>
+              <option value="India">India</option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="United Kingdom">United Kingdom</option>
+            </select>
+            <div class="invalid-feedback">Please select your country.</div>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="mb-3">
+            <label for="linkedin" class="form-label">LinkedIn Profile</label>
+            <div class="input-group">
+              <span class="input-group-text">https://</span>
+              <input type="text" class="form-control" id="linkedin" name="linkedin">
+              <div class="invalid-feedback">Please enter a valid LinkedIn URL (optional).</div>
+            </div>
+          </div>
+
+          <!-- Satisfaction Range -->
+          <div class="mb-3">
+            <label for="satisfaction" class="form-label">Satisfaction Level</label>
+            <input type="range" class="form-range" id="satisfaction" name="satisfaction" min="0" max="10">
+            <div class="form-text">0 = Not Satisfied, 10 = Very Satisfied</div>
+          </div>
+
+          <!-- Job Title -->
+          <div class="mb-3">
+            <label for="jobTitle" class="form-label">Current Job Title</label>
+            <input type="text" class="form-control" id="jobTitle" name="jobTitle">
+          </div>
+
+          <!-- Company -->
+          <div class="mb-3">
+            <label for="company" class="form-label">Current Company</label>
+            <input type="text" class="form-control" id="company" name="company">
+          </div>
+
+          <!-- Interests -->
+          <div class="mb-3">
+            <label for="interests" class="form-label">Areas of Interest</label>
+            <input type="text" class="form-control" id="interests" name="interests">
+          </div>
+
+          <!-- Volunteer -->
+          <fieldset class="mb-3">
+            <legend class="col-form-label pt-0">Willing to Volunteer</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="volunteer" id="volunteerYes" value="yes" required>
+              <label class="form-check-label" for="volunteerYes">Yes</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="volunteer" id="volunteerNo" value="no" required>
+              <label class="form-check-label" for="volunteerNo">No</label>
+            </div>
+          </fieldset>
+
+          <!-- Guest Lecture -->
+          <fieldset class="mb-3">
+            <legend class="col-form-label pt-0">Willing to Take Guest Lecture</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="guestLecture" id="guestLectureYes" value="yes" required>
+              <label class="form-check-label" for="guestLectureYes">Yes</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="guestLecture" id="guestLectureNo" value="no" required>
+              <label class="form-check-label" for="guestLectureNo">No</label>
+            </div>
+          </fieldset>
+
+          <!-- Upload Photo -->
+          <div class="mb-3">
+            <label for="photo" class="form-label">Upload Photo</label>
+            <input class="form-control" type="file" id="photo" name="photo" accept="image/*" required>
+            <div class="invalid-feedback">Please upload a photo.</div>
+          </div>
+
+          <!-- Confirmation Checkbox -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="confirm" name="confirm" required>
+            <label class="form-check-label" for="confirm">I confirm that all the provided information is correct.</label>
+            <div class="invalid-feedback">You must confirm that all information is correct.</div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Populate Graduation Year Dropdown -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const gradYearSelect = document.getElementById('gradYear');
+      for (let year = 1950; year <= 2050; year++) {
+        const option = document.createElement('option');
+        option.value = year;
+        option.text = year;
+        gradYearSelect.appendChild(option);
+      }
+    });
+  </script>
+
+  <!-- Bootstrap 5 Form Validation -->
+  <script>
+    (() => {
+      'use strict';
+      const form = document.getElementById('alumniForm');
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    })();
+  </script>
+</body>
+</html>
